@@ -1,6 +1,13 @@
+package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import main.AiDataFormat;
+import main.AiDataLengthType;
+import main.AiDataType;
+import main.ApplicationIdentifier;
+import main.ApplicationIdentifiers;
 
 class TestApplicationIdentifiers {
 
