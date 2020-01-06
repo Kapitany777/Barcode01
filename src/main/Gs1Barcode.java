@@ -6,7 +6,7 @@ public class Gs1Barcode {
 	private char separator;
 	private ApplicationIdentifiers identifiers;
 	
-	private String gtin;
+	private Gtin13 gtin13;
 	
 	public Gs1Barcode(String barcode, char separator, ApplicationIdentifiers identifiers)
 	{
@@ -32,6 +32,10 @@ public class Gs1Barcode {
 				
 				
 			}
+			else
+			{
+				continue;
+			}
 			
 			sbAi.setLength(0);
 		}
@@ -45,7 +49,9 @@ public class Gs1Barcode {
 		return separator;
 	}
 
-	public String getGtin() {
-		return gtin;
+	public Gtin13 getGtin13() {
+		return gtin13;
 	}
+
+	
 }
