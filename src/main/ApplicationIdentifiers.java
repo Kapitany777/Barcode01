@@ -1,5 +1,10 @@
 package main;
 import java.util.ArrayList;
+
+import main.enums.AiDataFormat;
+import main.enums.AiDataLengthType;
+import main.enums.AiDataType;
+
 import java.util.*;
 
 public class ApplicationIdentifiers

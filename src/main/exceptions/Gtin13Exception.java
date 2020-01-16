@@ -1,4 +1,4 @@
-package main;
+package main.exceptions;
 
 public class Gtin13Exception extends RuntimeException {
 

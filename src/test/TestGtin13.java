@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import main.Gtin13;
-import main.Gtin13Exception;
+import main.exceptions.Gtin13Exception;
 
 class TestGtin13 {
 

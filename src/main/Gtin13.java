@@ -1,5 +1,7 @@
 package main;
 
+import main.exceptions.Gtin13Exception;
+
 public class Gtin13
 {
 	private String gtin13;

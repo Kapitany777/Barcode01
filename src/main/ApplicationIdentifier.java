@@ -1,5 +1,9 @@
 package main;
 
+import main.enums.AiDataFormat;
+import main.enums.AiDataLengthType;
+import main.enums.AiDataType;
+
 public class ApplicationIdentifier
 {
 	private String ai;
