@@ -24,6 +24,9 @@ public class ApplicationIdentifiers
 		identifiers.add(new ApplicationIdentifier("10", AiDataLengthType.VARIABLE, 20, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "BATCH/LOT"));
 		identifiers.add(new ApplicationIdentifier("15", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "BEST BEFORE"));
 		identifiers.add(new ApplicationIdentifier("17", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "EXPIRY"));
+		identifiers.add(new ApplicationIdentifier("37", AiDataLengthType.VARIABLE, 8, AiDataFormat.NUMERIC, AiDataType.NUMBER, "COUNT"));
+		identifiers.add(new ApplicationIdentifier("7006", AiDataLengthType.VARIABLE, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "FIRST FREEZE DATE"));
+		identifiers.add(new ApplicationIdentifier("7007", AiDataLengthType.VARIABLE, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "HARVEST DATE"));
 	}
 	
 	public boolean contains(String ai)

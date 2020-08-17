@@ -1,7 +1,7 @@
 package main.exceptions;
 
-public class Gtin13Exception extends RuntimeException {
-
+public class Gtin13Exception extends RuntimeException
+{
 	private static final long serialVersionUID = 1L;
 
 	public Gtin13Exception() {
