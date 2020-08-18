@@ -104,35 +104,33 @@ public class Gs1Barcode {
 		
 		while (i < this.barcode.length())
 		{
-			sbAi.append(barcode.charAt(i));
+			sbAi.append(this.barcode.charAt(i));
 			
 			if (identifiers.contains(sbAi.toString()))
 			{
 				ApplicationIdentifier identifier = identifiers.getIdentifier(sbAi.toString());
 				tryToSetBarcodeType(identifier);
-				//System.out.println(sbAi.toString());
 				
 				i++;
 				
 				sbData.setLength(0);
 				boolean containsSeparator = false;
 				
-				while (i < barcode.length() && sbData.length() < identifier.getMaxLength())
+				while (i < this.barcode.length() && sbData.length() < identifier.getMaxLength())
 				{
-					if (barcode.charAt(i) != separator)
+					if (this.barcode.charAt(i) != separator)
 					{
-						sbData.append(barcode.charAt(i));
+						sbData.append(this.barcode.charAt(i));
 						i++;
 					}
 					else
 					{
 						containsSeparator = true;
-						i += 2;
+						i++;
 						break;
 					}
 				}
-
-				//System.out.println(sbData.toString());
+				
 				checkBarcodeData(identifier, sbData.toString(), containsSeparator);
 				setBarcodeData(identifier, sbData.toString());
 				

@@ -22,9 +22,19 @@ public class ApplicationIdentifiers
 		identifiers.add(new ApplicationIdentifier("01", AiDataLengthType.FIXED, 14, AiDataFormat.NUMERIC, AiDataType.NUMBER, "GTIN"));
 		identifiers.add(new ApplicationIdentifier("02", AiDataLengthType.FIXED, 14, AiDataFormat.NUMERIC, AiDataType.NUMBER, "CONTENT"));
 		identifiers.add(new ApplicationIdentifier("10", AiDataLengthType.VARIABLE, 20, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "BATCH/LOT"));
+		identifiers.add(new ApplicationIdentifier("11", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "PROD DATE"));
+		identifiers.add(new ApplicationIdentifier("12", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "DUE DATE"));
+		identifiers.add(new ApplicationIdentifier("13", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "PACK DATE"));
 		identifiers.add(new ApplicationIdentifier("15", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "BEST BEFORE"));
 		identifiers.add(new ApplicationIdentifier("17", AiDataLengthType.FIXED, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "EXPIRY"));
+		identifiers.add(new ApplicationIdentifier("20", AiDataLengthType.FIXED, 2, AiDataFormat.NUMERIC, AiDataType.NUMBER, "VARIANT"));
+		identifiers.add(new ApplicationIdentifier("21", AiDataLengthType.VARIABLE, 20, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "SERIAL"));
+		identifiers.add(new ApplicationIdentifier("240", AiDataLengthType.VARIABLE, 30, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "ADDITIONAL ID"));
+		identifiers.add(new ApplicationIdentifier("250", AiDataLengthType.VARIABLE, 30, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "SECONDARY SERIAL"));
+		identifiers.add(new ApplicationIdentifier("310", AiDataLengthType.FIXED, 7, AiDataFormat.NUMERIC, AiDataType.NUMBER, "NET WEIGHT (KG)"));
 		identifiers.add(new ApplicationIdentifier("37", AiDataLengthType.VARIABLE, 8, AiDataFormat.NUMERIC, AiDataType.NUMBER, "COUNT"));
+		identifiers.add(new ApplicationIdentifier("400", AiDataLengthType.VARIABLE, 30, AiDataFormat.ANYCHARACTER, AiDataType.STRING, "ORDER NUMBER"));
+		identifiers.add(new ApplicationIdentifier("426", AiDataLengthType.FIXED, 3, AiDataFormat.NUMERIC, AiDataType.NUMBER, "COUNTRY, FULL PROCESS"));
 		identifiers.add(new ApplicationIdentifier("7006", AiDataLengthType.VARIABLE, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "FIRST FREEZE DATE"));
 		identifiers.add(new ApplicationIdentifier("7007", AiDataLengthType.VARIABLE, 6, AiDataFormat.NUMERIC, AiDataType.DATE, "HARVEST DATE"));
 	}
