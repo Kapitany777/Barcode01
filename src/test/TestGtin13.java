@@ -48,7 +48,7 @@ class TestGtin13 {
 	{
 		Gtin13 gtin13 = new Gtin13(input);
 		
-		assertEquals(expected, gtin13.getGtin13());
+		assertEquals(expected, gtin13.getGtin());
 	}
 	
 	@ParameterizedTest
@@ -61,7 +61,7 @@ class TestGtin13 {
 	{
 		Gtin13 gtin13 = new Gtin13(input);
 		
-		assertEquals(expected, gtin13.getGtin13());
+		assertEquals(expected, gtin13.getGtin());
 	}
 	
 	@ParameterizedTest
@@ -74,6 +74,6 @@ class TestGtin13 {
 	{
 		Gtin13 gtin13 = new Gtin13(input);
 		
-		assertEquals(expected, gtin13.getGtin13());
+		assertEquals(expected, gtin13.getGtin());
 	}
 }

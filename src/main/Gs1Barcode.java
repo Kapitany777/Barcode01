@@ -10,12 +10,15 @@ public class Gs1Barcode {
 	private ApplicationIdentifiers identifiers;
 	
 	private BarcodeType barcodeType;
+	
+	private Gtin14 gtin14;
 	private Gtin13 gtin13;
 	
 	private String lot;
 	private String bestBefore;
 	private String expiry;
 	private int count;
+	private double netWeight;
 	
 	public Gs1Barcode(String barcode, char separator, ApplicationIdentifiers identifiers)
 	{
@@ -24,10 +27,13 @@ public class Gs1Barcode {
 		this.identifiers = identifiers;
 		
 		this.setBarcodeType(BarcodeType.UNKNOWN);
+		this.setGtin13(null);
+		this.setGtin14(null);
 		this.setLot(null);
 		this.setBestBefore(null);
 		this.setExpiry(null);
 		this.setCount(0);
+		this.setNetWeight(0);
 		
 		parseBarcode();
 	}
@@ -69,14 +75,30 @@ public class Gs1Barcode {
 		if (identifier.getDataLengthType() == AiDataLengthType.FIXED &&
 			data.length() != identifier.getMaxLength())
 		{
-			throw new RuntimeException("Invalid length!");
+			throw new RuntimeException("Invalid fixed length!");
 		}
+		
+		/*if (identifier.getDataLengthType() == AiDataLengthType.VARIABLE &&
+				data.length() > identifier.getMaxLength())
+		{
+			throw new RuntimeException("Invalid variable length!");
+		}*/
 	}
 	
 	private void setBarcodeData(ApplicationIdentifier identifier, String data)
 	{
 		switch (identifier.getAi())
 		{
+		case "01":
+			this.setGtin13(new Gtin13(data));
+			this.setGtin14(new Gtin14(data));
+			break;
+			
+		case "02":
+			this.setGtin13(new Gtin13(data));
+			this.setGtin14(new Gtin14(data));
+			break;
+			
 		case "10":
 			this.setLot(data);
 			break;
@@ -87,6 +109,10 @@ public class Gs1Barcode {
 		
 		case "17":
 			this.setExpiry(data);
+			break;
+			
+		case "310":
+			this.setNetWeight(Integer.parseInt(data.substring(1, 7)) / Math.pow(10, Integer.parseInt(data.substring(0, 1))));
 			break;
 			
 		case "37":
@@ -151,8 +177,20 @@ public class Gs1Barcode {
 		return separator;
 	}
 
+	public Gtin14 getGtin14() {
+		return gtin14;
+	}
+	
+	private void setGtin14(Gtin14 gtin14) {
+		this.gtin14 = gtin14;
+	}
+	
 	public Gtin13 getGtin13() {
 		return gtin13;
+	}
+	
+	private void setGtin13(Gtin13 gtin13) {
+		this.gtin13 = gtin13;
 	}
 
 	public BarcodeType getBarcodeType() {
@@ -193,5 +231,13 @@ public class Gs1Barcode {
 
 	private void setCount(int count) {
 		this.count = count;
+	}
+
+	public double getNetWeight() {
+		return netWeight;
+	}
+
+	private void setNetWeight(double netWeight) {
+		this.netWeight = netWeight;
 	}
 }

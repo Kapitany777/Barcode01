@@ -1,24 +1,29 @@
 package main;
 
-import main.exceptions.Gtin13Exception;
+import main.exceptions.Gtin14Exception;
 
 public class Gtin14
 {
-	private String gtin14;
+	private String gtin;
 	
 	public Gtin14(String gtin)
 	{
 		if (gtin.length() != 14)
 		{
-			throw new Gtin13Exception("Invalid GTIN: " + gtin);
+			throw new Gtin14Exception("Invalid GTIN: " + gtin);
 		}
 		
 		if (!isValid(gtin))
 		{
-			throw new Gtin13Exception("Invalid character: " + gtin);
+			throw new Gtin14Exception("Invalid character: " + gtin);
 		}
 		
-		//calculateCheckDigit(getCode(gtin));
+		if (!isCheckDigitCorrect(gtin))
+		{
+			throw new Gtin14Exception("Invalid check digit: " + gtin);
+		}
+		
+		setGtin(gtin);
 	}
 	
 	private boolean isValid(String gtin)
@@ -33,8 +38,37 @@ public class Gtin14
 		
 		return true;
 	}
+	
+	private boolean isCheckDigitCorrect(String code)
+	{
+		int sum = 0;
+		
+		for (int i = 0; i < 13; i++)
+		{
+			int digit = Character.digit(code.charAt(i), 10);				
+			sum += digit * (i % 2 == 0 ? 3 : 1);
+		}
+		
+		int checkDigit = 10 - (sum % 10);
+		
+		if (checkDigit == 10)
+		{
+			checkDigit = 0;
+		}
+		
+		if (code.charAt(13) != '0' + checkDigit)
+		{
+			return false;
+		}
+		
+		return true;
+	}
 
-	public String getGtin14() {
-		return gtin14;
+	private void setGtin(String gtin) {
+		this.gtin = gtin;
+	}
+	
+	public String getGtin() {
+		return gtin;
 	}
 }

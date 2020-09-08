@@ -4,7 +4,7 @@ import main.exceptions.Gtin13Exception;
 
 public class Gtin13
 {
-	private String gtin13;
+	private String gtin;
 	
 	public Gtin13(String gtin)
 	{
@@ -67,10 +67,10 @@ public class Gtin13
 			checkDigit = 0;
 		}
 		
-		this.gtin13 = code.substring(0, 12) + Integer.toString(checkDigit);
+		this.gtin = code.substring(0, 12) + Integer.toString(checkDigit);
 	}
 
-	public String getGtin13() {
-		return gtin13;
+	public String getGtin() {
+		return gtin;
 	}
 }
