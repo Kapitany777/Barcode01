@@ -90,10 +90,6 @@ public class Gs1Barcode {
 		switch (identifier.getAi())
 		{
 		case "01":
-			this.setGtin13(new Gtin13(data));
-			this.setGtin14(new Gtin14(data));
-			break;
-			
 		case "02":
 			this.setGtin13(new Gtin13(data));
 			this.setGtin14(new Gtin14(data));
@@ -223,6 +219,18 @@ public class Gs1Barcode {
 
 	private void setExpiry(String expiry) {
 		this.expiry = expiry;
+	}
+	
+	public String getDate()
+	{
+		String date = getBestBefore();
+		
+		if (date == null)
+		{
+			date = getExpiry();
+		}
+		
+		return date;
 	}
 
 	public int getCount() {
