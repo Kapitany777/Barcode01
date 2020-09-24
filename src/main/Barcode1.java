@@ -1,6 +1,6 @@
 package main;
 
-import constants.Separators;
+import main.constants.Separators;
 
 public class Barcode1 {
 
